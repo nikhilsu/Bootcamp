@@ -30,7 +30,13 @@ public class Main {
 
             index=input[i].indexOf(" at ")+4;
             price = Float.parseFloat(input[i].substring(index));
-            
+
+            int tax = 0;
+
+            if(input[i].contains("imported"))
+                tax+=5;
+            if(input[i].contains(""))
+
 
 
 
