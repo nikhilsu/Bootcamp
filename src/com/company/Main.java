@@ -36,15 +36,13 @@ public class Main {
             input[i]+= ": ";
 
             int tax = 0;
-            System.out.println(input[i].indexOf(" imported "));
-            if(input[i].indexOf(" imported ") != -1) {
+            //System.out.println(input[i].indexOf(" imported "));
+            if(input[i].indexOf("imported") != -1) {
                 tax += 5;
-                System.out.println("5 tax");
             }
-            System.out.println(input[i].indexOf(" chocolates "));
-            if(input[i].indexOf(" book ") != -1 || input[i].indexOf(" pills ") != -1 || input[i].indexOf(" chocolates ") != -1){ //&& input[i].indexOf(" books ") == -1) {
+            //System.out.println(input[i].indexOf("chocolates"));
+            if(input[i].indexOf("book") != -1 || input[i].indexOf("pills") != -1 || input[i].indexOf("chocolates") != -1){ //&& input[i].indexOf(" books ") == -1) {
                 tax += 0;
-                System.out.println("0 tax");
             }
             else tax += 10;
 
@@ -55,5 +53,8 @@ public class Main {
 
             System.out.println(input[i]);
         }
+
+        System.out.println("Sales tax: "+ total_tax);
+        System.out.println("Total: "+ total);
     }
 }
