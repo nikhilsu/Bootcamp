@@ -13,7 +13,7 @@ public class Main {
         String temp;
         while(n<10) {
             temp = s.nextLine();
-            if(!temp.equals(new String("")))
+            if(!temp.equals(""))
                 input[n++]=temp;
             else break;
         }
@@ -28,14 +28,19 @@ public class Main {
             while(Character.isDigit(input[i].charAt(index++)));
             qty = Integer.parseInt(input[i].substring(0,index));  // add test here to check validity
 
-            index=input[i].indexOf(" at ")+4;
-            price = Float.parseFloat(input[i].substring(index));
+            index=input[i].indexOf(" at ");
+            price = Float.parseFloat(input[i].substring(index + 4));
+            input[i]=input[i].substring(0, index);
+            input[i]+= ": ";
 
             int tax = 0;
 
             if(input[i].contains("imported"))
                 tax+=5;
-            if(input[i].contains(""))
+            if(!(input[i].contains(" book ") || input[i].contains(" pills ") || input[i].contains(" pill ") || input[i].contains(" chocolates ") || input[i].contains(" books "))){
+
+            }
+
 
 
 
