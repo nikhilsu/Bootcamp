@@ -47,7 +47,7 @@ public class Main {
             else tax += 10;
 
             total_tax += (price * tax) / 100;
-            total_tax = new Float(Math.round(total_tax * 20) / 20.0)
+            total_tax = new Float(Math.round(total_tax * 20) / 20.0);
             price += (price * tax) / 100;
             price = new Float(Math.round(price * 20) / 20.0);
             total += price;
