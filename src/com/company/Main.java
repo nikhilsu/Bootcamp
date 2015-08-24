@@ -37,11 +37,11 @@ public class Main {
 
             int tax = 0;
 
-            if(input[i].contains(" imported ")) {
+            if(input[i].indexOf(" imported ") != -1) {
                 tax += 5;
                 System.out.println("5 tax");
             }
-            if(!(input[i].contains(" book ") || input[i].contains(" pills ") || input[i].contains(" pill ") || input[i].contains(" chocolates ") || input[i].contains(" books "))) {
+            if(input[i].indexOf(" book ") == -1 || input[i].indexOf(" pills ") == -1 || input[i].indexOf(" chocolates ") == -1){ //&& input[i].indexOf(" books ") == -1) {
                 tax += 10;
                 System.out.println("10 tax");
             }
