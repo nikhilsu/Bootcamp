@@ -28,7 +28,7 @@ public class Main {
             Float price;
 
             while(Character.isDigit(input[i].charAt(index++)));
-            qty = Integer.parseInt(input[i].substring(0,index));  // add test here to check validity
+            qty = Integer.parseInt(input[i].substring(0,index -1 ));  // add test here to check validity
 
             index=input[i].indexOf(" at ");
             price = Float.parseFloat(input[i].substring(index + 4));
@@ -37,22 +37,21 @@ public class Main {
 
             int tax = 0;
 
-            if(input[i].contains(" imported "))
-                tax+=5;
-            if(!(input[i].contains(" book ") || input[i].contains(" pills ") || input[i].contains(" pill ") || input[i].contains(" chocolates ") || input[i].contains(" books ")))
-                tax+=10;
+            if(input[i].contains(" imported ")) {
+                tax += 5;
+                System.out.println("5 tax");
+            }
+            if(!(input[i].contains(" book ") || input[i].contains(" pills ") || input[i].contains(" pill ") || input[i].contains(" chocolates ") || input[i].contains(" books "))) {
+                tax += 10;
+                System.out.println("10 tax");
+            }
 
             total_tax += (price * tax) / 100;
             price += (price * tax) / 100;
             total += price;
             input[i]+=price;
 
-
-
-
-
-
-
+            System.out.println(input[i]);
         }
     }
 }
