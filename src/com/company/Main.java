@@ -48,6 +48,7 @@ public class Main {
 
             total_tax += (price * tax) / 100;
             price += (price * tax) / 100;
+            price = new Float(Math.round(price * 20) / 20.0);
             total += price;
             input[i]+=price;
 
