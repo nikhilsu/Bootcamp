@@ -20,9 +20,21 @@ public class Main {
        // for (int i=0;i<n;i++)
        //     System.out.println(input[i]);
 
+        int qty;
+        Float price;
         for (int i = 0; i < n ; i++) {
-            int e=0;
-            while(input[i].charAt(e))
+            int index=0;
+
+            while(Character.isDigit(input[i].charAt(index++)));
+            qty = Integer.parseInt(input[i].substring(0,index));  // add test here to check validity
+
+            index=input[i].indexOf(" at ")+4;
+            price = Float.parseFloat(input[i].substring(index));
+            
+
+
+
+
         }
     }
 }
