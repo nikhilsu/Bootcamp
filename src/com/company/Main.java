@@ -17,8 +17,12 @@ public class Main {
                 input[n++]=temp;
             else break;
         }
-        for (int i=0;i<n;i++)
-            System.out.println(input[i]);
+       // for (int i=0;i<n;i++)
+       //     System.out.println(input[i]);
 
+        for (int i = 0; i < n ; i++) {
+            int e=0;
+            while(input[i].charAt(e))
+        }
     }
 }
