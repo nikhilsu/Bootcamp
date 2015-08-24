@@ -20,10 +20,12 @@ public class Main {
        // for (int i=0;i<n;i++)
        //     System.out.println(input[i]);
 
-        int qty;
-        Float price;
+        Float total_tax= new Float(0), total=new Float(0.0);
+
         for (int i = 0; i < n ; i++) {
             int index=0;
+            int qty;
+            Float price;
 
             while(Character.isDigit(input[i].charAt(index++)));
             qty = Integer.parseInt(input[i].substring(0,index));  // add test here to check validity
@@ -35,11 +37,16 @@ public class Main {
 
             int tax = 0;
 
-            if(input[i].contains("imported"))
+            if(input[i].contains(" imported "))
                 tax+=5;
-            if(!(input[i].contains(" book ") || input[i].contains(" pills ") || input[i].contains(" pill ") || input[i].contains(" chocolates ") || input[i].contains(" books "))){
+            if(!(input[i].contains(" book ") || input[i].contains(" pills ") || input[i].contains(" pill ") || input[i].contains(" chocolates ") || input[i].contains(" books ")))
+                tax+=10;
 
-            }
+            total_tax += (price * tax) / 100;
+            price += (price * tax) / 100;
+            total += price;
+            input[i]+=price;
+
 
 
 
