@@ -5,8 +5,8 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-	// write your code here
-    Scanner s = new Scanner(System.in);
+
+        Scanner s = new Scanner(System.in);
         System.out.println("Inputs? ");
         String [] input = new String[10];
         int n=0;
@@ -17,46 +17,45 @@ public class Main {
                 input[n++]=temp;
             else break;
         }
-       // for (int i=0;i<n;i++)
-       //     System.out.println(input[i]);
 
-        Float total_tax= new Float(0), total=new Float(0.0);
+        Float total_tax= new Float(0), total=new Float(0);
 
         for (int i = 0; i < n ; i++) {
-            int index=0;
-            int qty;
-            Float price;
+            /*
 
             while(Character.isDigit(input[i].charAt(index++)));
-            qty = Integer.parseInt(input[i].substring(0,index -1 ));  // add test here to check validity
+            int qty = Integer.parseInt(input[i].substring(0, index - 1));  // add test here to check validity
 
-            index=input[i].indexOf(" at ");
-            price = Float.parseFloat(input[i].substring(index + 4));
-            input[i]=input[i].substring(0, index);
-            input[i]+= ": ";
+            */
+
+            int index =input[i].indexOf(" at ");
+            Float price = Float.parseFloat(input[i].substring(index + 4));
 
             int tax = 0;
-            //System.out.println(input[i].indexOf(" imported "));
-            if(input[i].indexOf("imported") != -1) {
+
+            if(input[i].contains(" imported ")) {
                 tax += 5;
             }
-            //System.out.println(input[i].indexOf("chocolates"));
-            if(input[i].indexOf("book") != -1 || input[i].indexOf("pills") != -1 || input[i].indexOf("chocolates") != -1){ //&& input[i].indexOf(" books ") == -1) {
-                tax += 0;
-            }
-            else tax += 10;
 
-            total_tax += (price * tax) / 100;
-            total_tax = new Float(Math.round(total_tax * 20) / 20.0);
-            price += (price * tax) / 100;
-            price = new Float(Math.round(price * 20) / 20.0);
+            if(!input[i].contains(" book ") && !input[i].contains(" books ") && !input[i].contains(" pills ") && !input[i].contains(" chocolates ") && !input[i].contains(" chocolate ")){
+                tax += 10;
+            }
+
+            input[i]=input[i].substring(0, index);
+            input[i]+= ": ";
+            if(tax != 0) {
+                total_tax += (price * tax) / 100;
+                price += (price * tax) / 100;
+                price = new Float(Math.round(price / 0.05) * 0.05);
+            }
             total += price;
             input[i]+=price;
 
             System.out.println(input[i]);
         }
 
-        System.out.println("Sales tax: "+ total_tax);
+        total_tax = new Float(Math.round(total_tax / 0.05) * 0.05);
+        System.out.println("\nSales tax: "+ total_tax);
         System.out.println("Total: "+ total);
     }
 }
