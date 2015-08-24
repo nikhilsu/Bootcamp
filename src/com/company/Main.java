@@ -10,12 +10,13 @@ public class Main {
         System.out.println("Inputs? ");
         String [] input = new String[10];
         int n=0;
+        String temp;
         while(n<10) {
-            String temp = s.nextLine();
-            if(temp!="")
+            temp = s.nextLine();
+            if(!temp.equals(new String("")))
                 input[n++]=temp;
+            else break;
         }
-
         for (int i=0;i<n;i++)
             System.out.println(input[i]);
 
