@@ -36,15 +36,17 @@ public class Main {
             input[i]+= ": ";
 
             int tax = 0;
-
+            System.out.println(input[i].indexOf(" imported "));
             if(input[i].indexOf(" imported ") != -1) {
                 tax += 5;
                 System.out.println("5 tax");
             }
-            if(input[i].indexOf(" book ") == -1 || input[i].indexOf(" pills ") == -1 || input[i].indexOf(" chocolates ") == -1){ //&& input[i].indexOf(" books ") == -1) {
-                tax += 10;
-                System.out.println("10 tax");
+            System.out.println(input[i].indexOf(" chocolates "));
+            if(input[i].indexOf(" book ") != -1 || input[i].indexOf(" pills ") != -1 || input[i].indexOf(" chocolates ") != -1){ //&& input[i].indexOf(" books ") == -1) {
+                tax += 0;
+                System.out.println("0 tax");
             }
+            else tax += 10;
 
             total_tax += (price * tax) / 100;
             price += (price * tax) / 100;
